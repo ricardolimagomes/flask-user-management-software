@@ -1,0 +1,33 @@
+{% extends 'crud/view.html' %}
+
+{% block header %}
+  <h1>{% block title %}Editar Registro do Aluno "{{ Aluno['Nome_Completo'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+
+<form method="post">
+  <label for="title">Nome Completo</label>
+  <input name="Nome_Completo" id="Nome_Completo"
+   value="{{ request.form['Nome_Completo'] or Aluno['Nome_Completo'] }}" required>
+
+  <label for="RA">RA</label>
+  <input name="RA" id="RA" value="{{ request.form['title'] }}">
+
+  <label for="Data_Nascimento">Data de Nascimento</label>
+  <input name="Data_Nascimento" id="Data_Nascimento" value="{{ request.form['Data_Nascimento'] }}">
+
+  <label for="RM ">RM</label>
+  <input name="RM" id="RM" value="{{ request.form['RM'] }}">
+
+
+  <input type="submit" value="Salvar">
+  
+</form>
+
+  <hr>
+  <form action="{{ url_for('crud.delete', Id_Aluno=Aluno['Id_Aluno']) }}" method="post">
+    <input class="danger" type="submit" value="Deletar Registro de Aluno" onclick="return confirm('Tem certeza que quer deletar? Esse processo sera irreversivel.');">
+  </form>
+{% endblock %}

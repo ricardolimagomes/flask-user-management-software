@@ -1,0 +1,61 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    </head>
+  <body>	
+  
+    <div class="flex-parent jc-center">
+    <a href="{{ url_for('auth.register') }}" class="mybutton"> <i class="fa fa-address-card"></i> Cadastrar-se</a>
+	<a href="{{ url_for('auth.login') }}" class="mybutton" ><i class="fa fa-search"></i> Entrar</a>
+    <a href="{{ url_for('auth.login') }}" class="mybutton" ><i class="fa fa-search"></i> Entrar como convidado</a>
+    </div>
+
+
+    {% block header %}
+    <h1>{% block title %}Classificacao das Fichas Remissivas{% endblock %}</h1>
+    {% if g.user %}
+        <a class="action" href="{{ url_for('crud.create') }}">Cadastrar Novo Prontuario de Aluno</a>
+    {% endif %}
+    {% endblock %}
+
+    {% block content %}
+    {% for aluno in alunos %}
+        
+        <table>
+          <header>
+          <div>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+            </tr>
+            
+  
+             <tr>
+              <td>{{ aluno['Id_Aluno'] }}</td>
+              <td>{{ aluno['Nome_Completo'] }}</td>
+            </tr>
+          
+          </div>
+
+            <a class="action" href="{{ url_for('crud.update', Id_Aluno=aluno['Id_Aluno']) }}">Editar Cadastro</a>
+
+        </header>
+        </table>
+
+
+        
+        {% if not loop.last %}
+        <hr>
+        {% endif %}
+    {% endfor %}
+    {% endblock %}
+
+
+  </body>
+      
+</html>

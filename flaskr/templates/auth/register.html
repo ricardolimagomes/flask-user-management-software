@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    </head>
+  <body>	
+    <a id="returnhome" class="action"href="{{ url_for('crud.index') }}"><i class="fa fa-home"></i> Voltar para a Pagina inicial</a>
+    <h1 style="text-align:center"> Cadastro de Usuario </h1>
+    <h2 style="text-align:center"> Insira suas informacoes </h2>
+   
+    <div class="login"> 
+    
+
+    <form method="post">
+      <label class="text-input-label" for="username">Digite o Usuario</label>
+      <input type="text" name="username" id="username" required>
+      <br><br>
+      <label class="pass-input-label" for="password">Digite a Senha</label>
+      <input type="password" name="password" id="password" required>
+      <br><br> 
+    </form>
+    <input type="submit" value="Cadastrar">
+    
+    </div>
+    
+    
+  </body>
+      
+</html>

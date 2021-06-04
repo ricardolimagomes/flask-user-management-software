@@ -1,0 +1,31 @@
+{% extends 'crud/view.html' %}
+
+{% block header %}
+  <h1>{% block title %}Novo Aluno Registro de Aluno {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div id='containercreate'>
+  <div class='create'>
+
+<form method="POST">
+    
+    <input name="Nome_Completo" id="Nome_Completo" value="{{ request.form['Nome_Completo'] }}" placeholder='Nome Completo do Aluno' required>
+    <br><br>
+    
+    <input name="RA" id="RA" value="{{ request.form['RA'] }}" placeholder='RA do Aluno'>
+    <br><br>
+    
+    <input name="Data_Nascimento" id="Data_Nascimento" value="{{ request.form['Data_Nascimento'] }}" placeholder='Data de Nascimento do Aluno'>
+    <br><br>
+    
+    <input name="RM" id="RM" value="{{ request.form['RM'] }}" placeholder='RM do Aluno'>
+    <br><br>
+
+    <input type="submit" value="Salvar">
+  </form>
+  
+  </div>
+  
+</div>
+{% endblock %}
